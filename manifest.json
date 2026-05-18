@@ -1,8 +1,7 @@
 {
-  "generatedAt": "2026-05-18T09:54:54.076Z",
   "sourceRepository": "Askja/hwh-extensions",
   "sourceRef": "dev",
-  "sourceSha": "4180109f765b751d44c9db66dc107d7e7f01d84b",
+  "sourceSha": "47120ea7f18e6ba6349875eacf383d386ba39576",
   "publicRepository": "Askja/hwh-extensions-greasyfork",
   "publicBranch": "main",
   "scripts": [
