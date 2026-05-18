@@ -8676,6 +8676,64 @@ var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "acce
   function buildSettingsPanel(content, { className = "", accentColor = "" } = {}) {
     return `<div class="${escapeHtml$1(["hwhx-panel", className].filter(Boolean).join(" "))}"${buildCssVariableStyleMarkup({ "--hwhx-accent": accentColor })}>${content}</div>`;
   }
+  function buildInfoLineMarkup({
+    label = "",
+    labelHtml = "",
+    value = "",
+    valueHtml = "",
+    icon = "",
+    title = "",
+    labelColor = "",
+    valueColor = "",
+    className = "",
+    lineId = "",
+    valueId = "",
+    attributes = {}
+  } = {}) {
+    const labelMarkup = labelHtml || (icon ? buildIconLabelMarkup(icon, label, { title }) : escapeHtml$1(label));
+    const valueMarkup = valueHtml || escapeHtml$1(value);
+    return `<div${buildHtmlAttributeMarkup({
+      id: lineId || void 0,
+      class: ["hwhx-info-line", className].filter(Boolean).join(" "),
+      "data-hwhx-native-title": title || void 0,
+      ...attributes
+    })}${buildTooltipAttributeMarkup(title)}${buildCssVariableStyleMarkup({
+      "--hwhx-label-color": labelColor,
+      "--hwhx-value-color": valueColor
+    })}><span class="hwhx-info-line__label">${labelMarkup}</span><span${buildHtmlAttributeMarkup(
+      {
+        id: valueId || void 0,
+        class: "hwhx-info-line__value"
+      }
+    )}>${valueMarkup}</span></div>`;
+  }
+  function buildSettingsHintMarkup(text, { title = "", className = "" } = {}) {
+    return `<div${buildHtmlAttributeMarkup({
+      class: ["hwhx-hint", className].filter(Boolean).join(" "),
+      role: "note",
+      "data-hwhx-native-title": title || void 0
+    })}${buildTooltipAttributeMarkup(title)}>${escapeHtml$1(text)}</div>`;
+  }
+  function buildDonatePanelMarkup({
+    title = "",
+    text = "",
+    wallet = "",
+    icon = "gift",
+    accentColor = "#6b4f29",
+    labelColor = "#ffd36e",
+    valueColor = "#f7e0bc"
+  } = {}) {
+    return buildSettingsPanel(
+      `${buildInfoLineMarkup({
+        label: title,
+        value: wallet,
+        icon,
+        labelColor,
+        valueColor
+      })}${buildSettingsHintMarkup(text)}`,
+      { accentColor }
+    );
+  }
   function buildSettingsAccordion({
     key = "",
     title = "",
@@ -8786,13 +8844,19 @@ var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "acce
   }
   function buildSettingsActionButton({
     result,
+    action,
     label,
     icon = "",
     tone = "graphite",
     title = "",
     className = ""
   } = {}) {
-    return `<button type="button" class="${escapeHtml$1(["hwhx-button", className].filter(Boolean).join(" "))}" data-action="${escapeHtml$1(result)}" data-tone="${escapeHtml$1(tone)}"${buildTooltipAttributeMarkup(title)}>${icon ? buildIconText(icon, label) : escapeHtml$1(label)}</button>`;
+    const actionValue = result ?? action ?? "";
+    return `<button type="button" class="${escapeHtml$1(["hwhx-button", className].filter(Boolean).join(" "))}" data-action="${escapeHtml$1(actionValue)}" data-tone="${escapeHtml$1(tone)}"${buildTooltipAttributeMarkup(title)}>${icon ? buildIconText(icon, label) : escapeHtml$1(label)}</button>`;
+  }
+  function buildSettingsActionBarMarkup(actions = [], { className = "hwhx-native-actions--left" } = {}) {
+    const actionMarkup = actions.map((action) => buildSettingsActionButton(action)).join("");
+    return `<div class="${escapeHtml$1(["hwhx-native-actions", className].filter(Boolean).join(" "))}">${actionMarkup}</div>`;
   }
   function buildSettingsSearchMarkup({
     placeholder = getDefaultSettingsSearchText().placeholder,
@@ -11350,10 +11414,14 @@ var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "acce
       buildSettingsSearchMarkup,
       buildIconLabelMarkup,
       buildInlineIconMarkup,
+      buildDonatePanelMarkup,
+      buildInfoLineMarkup,
       buildSettingsAccordion,
       buildSettingsActionButton,
+      buildSettingsActionBarMarkup,
       buildSettingsCheckboxRow,
       buildSettingsField,
+      buildSettingsHintMarkup,
       buildSettingsPanel,
       buildSettingsSelectField,
       getScopedElementById,
@@ -12597,7 +12665,19 @@ var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "acce
       });
     }
     function buildInfoPanelAccordion(settings) {
-      const preview = `<div class="hwhx-panel"${buildCssVariableStyleMarkup({ "--hwhx-accent": "#3f5a49" })}><div class="hwhx-section-title">${buildIconLabel("panel-top", translate("HWHHM_INFO_PANEL_TITLE"))}</div><div class="hwhx-hint">${escapeHtml$1(translate("HWHHM_INFO_PANEL_PREVIEW"))}</div><div class="hwhx-info-line"><span class="hwhx-info-line__label">${buildIconLabel("list-checks", translate("HWHHM_INFO_PANEL_GROUPS"))}</span><span class="hwhx-info-line__value">${escapeHtml$1([translate("HWHHM_SECTION_SKILLS"), translate("HWHHM_SECTION_EVOLUTION"), translate("HWHHM_SECTION_SKINS"), translate("HWHHM_SECTION_ASGARD")].join(" / "))}</span></div></div>`;
+      const preview = buildSettingsPanel(
+        `<div class="hwhx-section-title">${buildIconLabel("panel-top", translate("HWHHM_INFO_PANEL_TITLE"))}</div>${buildSettingsHintMarkup(translate("HWHHM_INFO_PANEL_PREVIEW"))}${buildInfoLineMarkup({
+          label: translate("HWHHM_INFO_PANEL_GROUPS"),
+          value: [
+            translate("HWHHM_SECTION_SKILLS"),
+            translate("HWHHM_SECTION_EVOLUTION"),
+            translate("HWHHM_SECTION_SKINS"),
+            translate("HWHHM_SECTION_ASGARD")
+          ].join(" / "),
+          icon: "list-checks"
+        })}`,
+        { accentColor: "#3f5a49" }
+      );
       const content = [
         preview,
         buildProgressSettingsFields({
@@ -12693,8 +12773,25 @@ var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "acce
       });
     }
     function buildAdditionalAccordion() {
-      const donateCard = `<div class="hwhx-panel"${buildCssVariableStyleMarkup({ "--hwhx-accent": "#6b4f29" })}><div class="hwhx-info-line"><span class="hwhx-info-line__label">${buildIconLabel("gift", translate("HWHHM_DONATE_TITLE"))}</span><span class="hwhx-info-line__value">${escapeHtml$1(translate("HWHHM_DONATE_WALLET", { wallet: "410011617614156" }))}</span></div><div class="hwhx-hint">${escapeHtml$1(translate("HWHHM_DONATE_TEXT"))}</div></div>`;
-      const actions = `<div class="hwhx-native-actions hwhx-native-actions--left"><button type="button" class="hwhx-button" data-action="exportSettings" data-tone="graphite">${buildIconLabel("download", translate("HWHHM_EXPORT_SETTINGS"))}</button><button type="button" class="hwhx-button" data-action="importSettings" data-tone="graphite">${buildIconLabel("upload", translate("HWHHM_IMPORT_SETTINGS"))}</button></div>`;
+      const donateCard = buildDonatePanelMarkup({
+        title: translate("HWHHM_DONATE_TITLE"),
+        wallet: translate("HWHHM_DONATE_WALLET", { wallet: "410011617614156" }),
+        text: translate("HWHHM_DONATE_TEXT")
+      });
+      const actions = buildSettingsActionBarMarkup([
+        {
+          result: "exportSettings",
+          label: translate("HWHHM_EXPORT_SETTINGS"),
+          icon: "download",
+          tone: "graphite"
+        },
+        {
+          result: "importSettings",
+          label: translate("HWHHM_IMPORT_SETTINGS"),
+          icon: "upload",
+          tone: "graphite"
+        }
+      ]);
       return buildSettingsAccordion$1({
         key: "additional",
         title: translate("HWHHM_SECTION_ADDITIONAL"),
@@ -12794,8 +12891,16 @@ var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "acce
           maxValue: 999,
           minValue: 0
         }),
-        `<div class="hwhx-info-line"><span class="hwhx-info-line__label">${buildIconLabel("activity", translate("HWHHM_SKILL_POINTS_BOUGHT_TODAY"))}</span><span class="hwhx-info-line__value">${buildSkillPointBoughtTodayValueMarkup(userInfo)}</span></div>`,
-        `<div class="hwhx-info-line"><span class="hwhx-info-line__label">${buildIconLabel("zap", translate("HWHHM_SKILL_POINTS"))}</span><span class="hwhx-info-line__value">${escapeHtml$1(formatNumber$1(getSkillPointAmount(userInfo)))}</span></div>`,
+        buildInfoLineMarkup({
+          label: translate("HWHHM_SKILL_POINTS_BOUGHT_TODAY"),
+          valueHtml: buildSkillPointBoughtTodayValueMarkup(userInfo),
+          icon: "activity"
+        }),
+        buildInfoLineMarkup({
+          label: translate("HWHHM_SKILL_POINTS"),
+          value: formatNumber$1(getSkillPointAmount(userInfo)),
+          icon: "zap"
+        }),
         `<div class="hwhx-settings-list"><div class="hwhx-section-title">${buildIconLabel("shuffle", translate("HWHHM_TARGET_ORDER"))}</div><div class="hwhx-reorder-list">${buildSkillTargetOrder(settings)}</div></div>`
       ].join("");
       const queueHtml = `<div class="hwhx-reorder-list">${buildSkillRows(heroes, settings)}</div>`;
@@ -14592,7 +14697,10 @@ var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "acce
           icon: config.icon
         });
       }).join("");
-      return `<div class="hwhx-popup hwhx-popup--compact hwhx-popup--padded"><div class="hwhx-panel"${buildCssVariableStyleMarkup({ "--hwhx-accent": "#4d5770" })}><div class="hwhx-section-title">${buildIconLabel("list-checks", translate("HWHHM_LEVEL_LIMIT_TITLE"))}</div><div class="hwhx-hint">${escapeHtml$1(translate("HWHHM_LEVEL_LIMIT_HINT"))}</div></div><div class="hwhx-settings-list">${rows}</div></div>`;
+      return `<div class="hwhx-popup hwhx-popup--compact hwhx-popup--padded">${buildSettingsPanel(
+        `<div class="hwhx-section-title">${buildIconLabel("list-checks", translate("HWHHM_LEVEL_LIMIT_TITLE"))}</div>${buildSettingsHintMarkup(translate("HWHHM_LEVEL_LIMIT_HINT"))}`,
+        { accentColor: "#4d5770" }
+      )}<div class="hwhx-settings-list">${rows}</div></div>`;
     }
     async function requestUpgradeLevelLimits(settings) {
       const modal = nativePopupBridge.open({

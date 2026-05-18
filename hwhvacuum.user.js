@@ -8679,6 +8679,64 @@ var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "acce
   function buildSettingsPanel(content, { className = "", accentColor = "" } = {}) {
     return `<div class="${escapeHtml$1(["hwhx-panel", className].filter(Boolean).join(" "))}"${buildCssVariableStyleMarkup({ "--hwhx-accent": accentColor })}>${content}</div>`;
   }
+  function buildInfoLineMarkup({
+    label = "",
+    labelHtml = "",
+    value = "",
+    valueHtml = "",
+    icon = "",
+    title = "",
+    labelColor = "",
+    valueColor = "",
+    className = "",
+    lineId = "",
+    valueId = "",
+    attributes = {}
+  } = {}) {
+    const labelMarkup = labelHtml || (icon ? buildIconLabelMarkup(icon, label, { title }) : escapeHtml$1(label));
+    const valueMarkup = valueHtml || escapeHtml$1(value);
+    return `<div${buildHtmlAttributeMarkup({
+      id: lineId || void 0,
+      class: ["hwhx-info-line", className].filter(Boolean).join(" "),
+      "data-hwhx-native-title": title || void 0,
+      ...attributes
+    })}${buildTooltipAttributeMarkup(title)}${buildCssVariableStyleMarkup({
+      "--hwhx-label-color": labelColor,
+      "--hwhx-value-color": valueColor
+    })}><span class="hwhx-info-line__label">${labelMarkup}</span><span${buildHtmlAttributeMarkup(
+      {
+        id: valueId || void 0,
+        class: "hwhx-info-line__value"
+      }
+    )}>${valueMarkup}</span></div>`;
+  }
+  function buildSettingsHintMarkup(text, { title = "", className = "" } = {}) {
+    return `<div${buildHtmlAttributeMarkup({
+      class: ["hwhx-hint", className].filter(Boolean).join(" "),
+      role: "note",
+      "data-hwhx-native-title": title || void 0
+    })}${buildTooltipAttributeMarkup(title)}>${escapeHtml$1(text)}</div>`;
+  }
+  function buildDonatePanelMarkup({
+    title = "",
+    text = "",
+    wallet = "",
+    icon = "gift",
+    accentColor = "#6b4f29",
+    labelColor = "#ffd36e",
+    valueColor = "#f7e0bc"
+  } = {}) {
+    return buildSettingsPanel(
+      `${buildInfoLineMarkup({
+        label: title,
+        value: wallet,
+        icon,
+        labelColor,
+        valueColor
+      })}${buildSettingsHintMarkup(text)}`,
+      { accentColor }
+    );
+  }
   function buildSettingsAccordion({
     key = "",
     title = "",
@@ -8789,13 +8847,19 @@ var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "acce
   }
   function buildSettingsActionButton({
     result,
+    action,
     label,
     icon = "",
     tone = "graphite",
     title = "",
     className = ""
   } = {}) {
-    return `<button type="button" class="${escapeHtml$1(["hwhx-button", className].filter(Boolean).join(" "))}" data-action="${escapeHtml$1(result)}" data-tone="${escapeHtml$1(tone)}"${buildTooltipAttributeMarkup(title)}>${icon ? buildIconText(icon, label) : escapeHtml$1(label)}</button>`;
+    const actionValue = result ?? action ?? "";
+    return `<button type="button" class="${escapeHtml$1(["hwhx-button", className].filter(Boolean).join(" "))}" data-action="${escapeHtml$1(actionValue)}" data-tone="${escapeHtml$1(tone)}"${buildTooltipAttributeMarkup(title)}>${icon ? buildIconText(icon, label) : escapeHtml$1(label)}</button>`;
+  }
+  function buildSettingsActionBarMarkup(actions = [], { className = "hwhx-native-actions--left" } = {}) {
+    const actionMarkup = actions.map((action) => buildSettingsActionButton(action)).join("");
+    return `<div class="${escapeHtml$1(["hwhx-native-actions", className].filter(Boolean).join(" "))}">${actionMarkup}</div>`;
   }
   function buildSettingsSearchMarkup({
     placeholder = getDefaultSettingsSearchText().placeholder,
@@ -11353,10 +11417,14 @@ var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "acce
       buildSettingsSearchMarkup,
       buildIconLabelMarkup,
       buildInlineIconMarkup,
+      buildDonatePanelMarkup,
+      buildInfoLineMarkup,
       buildSettingsAccordion,
       buildSettingsActionButton,
+      buildSettingsActionBarMarkup,
       buildSettingsCheckboxRow,
       buildSettingsField,
+      buildSettingsHintMarkup,
       buildSettingsPanel,
       buildSettingsSelectField,
       getScopedElementById,
@@ -12072,18 +12140,13 @@ var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "acce
       const keyAttribute = key ? ` data-hwhx-accordion-key="${escapeHtml$1(key)}"` : "";
       return `<details class="hwhx-accordion"${keyAttribute}${openAttribute}${buildCssVariableStyleMarkup({ "--hwhx-accent": accentColor })}><summary class="hwhx-accordion__summary"${titleAttribute}><span class="hwhx-accordion__heading">${buildAccordionArrowMarkup()}${buildInlineIcon(icon, "", tooltip)}<span>${escapeHtml$1(title)}</span></span>${badges ? `<span class="hwhx-badges">${badges}</span>` : ""}</summary><div class="hwhx-accordion__body">${content}</div></details>`;
     }
-    function buildSettingsCard(content, accentColor = "#6e4a24") {
-      return buildSettingsPanel(content, { accentColor });
-    }
     function buildDonateCard() {
       const wallet = "410011617614156";
-      return buildSettingsCard(
-        `<div class="hwhx-info-line"${buildCssVariableStyleMarkup({
-          "--hwhx-label-color": "#ffd36e",
-          "--hwhx-value-color": "#f7e0bc"
-        })}><span class="hwhx-info-line__label">${buildIconLabel("gift", translate("HWHVACUUM_DONATE_TITLE"), "")}</span><span class="hwhx-info-line__value">${escapeHtml$1(translate("HWHVACUUM_DONATE_WALLET", { wallet }))}</span></div><div class="hwhx-hint">${escapeHtml$1(translate("HWHVACUUM_DONATE_TEXT"))}</div>`,
-        "#6b4f29"
-      );
+      return buildDonatePanelMarkup({
+        title: translate("HWHVACUUM_DONATE_TITLE"),
+        wallet: translate("HWHVACUUM_DONATE_WALLET", { wallet }),
+        text: translate("HWHVACUUM_DONATE_TEXT")
+      });
     }
     function getShopDefinition(shopId) {
       return SHOP_DEFINITIONS[Number(shopId)] ?? {
@@ -12784,7 +12847,13 @@ var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "acce
       });
     }
     function buildTechnicalActionButton({ result, label, icon, tone = "graphite" }) {
-      return `<button type="button" class="hwhx-button hwhx-technical-button" data-action="${escapeHtml$1(result)}" data-tone="${escapeHtml$1(tone)}">${buildIconLabel(icon, label, "")}</button>`;
+      return buildSettingsActionButton({
+        result,
+        label,
+        icon,
+        tone,
+        className: "hwhx-technical-button"
+      });
     }
     function buildTechnicalAccordion(settings) {
       const content = [

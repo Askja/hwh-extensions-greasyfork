@@ -8679,6 +8679,64 @@ var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "acce
   function buildSettingsPanel(content, { className = "", accentColor = "" } = {}) {
     return `<div class="${escapeHtml$1(["hwhx-panel", className].filter(Boolean).join(" "))}"${buildCssVariableStyleMarkup({ "--hwhx-accent": accentColor })}>${content}</div>`;
   }
+  function buildInfoLineMarkup({
+    label = "",
+    labelHtml = "",
+    value = "",
+    valueHtml = "",
+    icon = "",
+    title = "",
+    labelColor = "",
+    valueColor = "",
+    className = "",
+    lineId = "",
+    valueId = "",
+    attributes = {}
+  } = {}) {
+    const labelMarkup = labelHtml || (icon ? buildIconLabelMarkup(icon, label, { title }) : escapeHtml$1(label));
+    const valueMarkup = valueHtml || escapeHtml$1(value);
+    return `<div${buildHtmlAttributeMarkup({
+      id: lineId || void 0,
+      class: ["hwhx-info-line", className].filter(Boolean).join(" "),
+      "data-hwhx-native-title": title || void 0,
+      ...attributes
+    })}${buildTooltipAttributeMarkup(title)}${buildCssVariableStyleMarkup({
+      "--hwhx-label-color": labelColor,
+      "--hwhx-value-color": valueColor
+    })}><span class="hwhx-info-line__label">${labelMarkup}</span><span${buildHtmlAttributeMarkup(
+      {
+        id: valueId || void 0,
+        class: "hwhx-info-line__value"
+      }
+    )}>${valueMarkup}</span></div>`;
+  }
+  function buildSettingsHintMarkup(text, { title = "", className = "" } = {}) {
+    return `<div${buildHtmlAttributeMarkup({
+      class: ["hwhx-hint", className].filter(Boolean).join(" "),
+      role: "note",
+      "data-hwhx-native-title": title || void 0
+    })}${buildTooltipAttributeMarkup(title)}>${escapeHtml$1(text)}</div>`;
+  }
+  function buildDonatePanelMarkup({
+    title = "",
+    text = "",
+    wallet = "",
+    icon = "gift",
+    accentColor = "#6b4f29",
+    labelColor = "#ffd36e",
+    valueColor = "#f7e0bc"
+  } = {}) {
+    return buildSettingsPanel(
+      `${buildInfoLineMarkup({
+        label: title,
+        value: wallet,
+        icon,
+        labelColor,
+        valueColor
+      })}${buildSettingsHintMarkup(text)}`,
+      { accentColor }
+    );
+  }
   function buildSettingsAccordion({
     key = "",
     title = "",
@@ -8789,13 +8847,19 @@ var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "acce
   }
   function buildSettingsActionButton({
     result,
+    action,
     label,
     icon = "",
     tone = "graphite",
     title = "",
     className = ""
   } = {}) {
-    return `<button type="button" class="${escapeHtml$1(["hwhx-button", className].filter(Boolean).join(" "))}" data-action="${escapeHtml$1(result)}" data-tone="${escapeHtml$1(tone)}"${buildTooltipAttributeMarkup(title)}>${icon ? buildIconText(icon, label) : escapeHtml$1(label)}</button>`;
+    const actionValue = result ?? action ?? "";
+    return `<button type="button" class="${escapeHtml$1(["hwhx-button", className].filter(Boolean).join(" "))}" data-action="${escapeHtml$1(actionValue)}" data-tone="${escapeHtml$1(tone)}"${buildTooltipAttributeMarkup(title)}>${icon ? buildIconText(icon, label) : escapeHtml$1(label)}</button>`;
+  }
+  function buildSettingsActionBarMarkup(actions = [], { className = "hwhx-native-actions--left" } = {}) {
+    const actionMarkup = actions.map((action) => buildSettingsActionButton(action)).join("");
+    return `<div class="${escapeHtml$1(["hwhx-native-actions", className].filter(Boolean).join(" "))}">${actionMarkup}</div>`;
   }
   function buildSettingsSearchMarkup({
     placeholder = getDefaultSettingsSearchText().placeholder,
@@ -11353,10 +11417,14 @@ var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "acce
       buildSettingsSearchMarkup,
       buildIconLabelMarkup,
       buildInlineIconMarkup,
+      buildDonatePanelMarkup,
+      buildInfoLineMarkup,
       buildSettingsAccordion,
       buildSettingsActionButton,
+      buildSettingsActionBarMarkup,
       buildSettingsCheckboxRow,
       buildSettingsField,
+      buildSettingsHintMarkup,
       buildSettingsPanel,
       buildSettingsSelectField,
       getScopedElementById,
@@ -13536,42 +13604,40 @@ var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "acce
       return `<details class="hwhx-accordion" data-hwhx-native-title="${escapeHtml$1(hint)}"${buildTitanAccordionStateAttributes(accordionKey, false)}${buildCssVariableStyleMarkup({ "--hwhx-accent": "#4d5770" })}><summary class="hwhx-accordion__summary"><span class="hwhx-accordion__heading">${buildAccordionArrowMarkup()}${buildInlineIcon("list-checks", "hwhx-blue")}<span>${escapeHtml$1(translate("HWHTITANART_DO_YOUR_BEST_PLACEMENT_HEADER"))}</span></span></summary><div class="hwhx-accordion__body">${selectMarkup}<div class="hwhx-hint">${escapeHtml$1(hint)}</div></div></details>`;
     }
     function buildTitanTrainerTechAccordion() {
-      const donateMarkup = buildSettingsCard(
-        `<div class="hwhx-info-line"${buildCssVariableStyleMarkup({
-          "--hwhx-label-color": "#ffd36e",
-          "--hwhx-value-color": "#f7e0bc"
-        })}><span class="hwhx-info-line__label">${buildIconLabel("gift", translate("HWHTITANTRAINER_DONATE_TITLE"))}</span><span class="hwhx-info-line__value">${escapeHtml$1(translate("HWHTITANTRAINER_DONATE_WALLET", { wallet: "410011617614156" }))}</span></div><div class="hwhx-hint">${escapeHtml$1(translate("HWHTITANTRAINER_DONATE_TEXT"))}</div>`,
-        "#6b4f29"
-      );
-      const actionMarkup = [
+      const donateMarkup = buildDonatePanelMarkup({
+        title: translate("HWHTITANTRAINER_DONATE_TITLE"),
+        wallet: translate("HWHTITANTRAINER_DONATE_WALLET", {
+          wallet: "410011617614156"
+        }),
+        text: translate("HWHTITANTRAINER_DONATE_TEXT")
+      });
+      const actionMarkup = buildSettingsActionBarMarkup([
         {
-          action: "exportSettings",
+          result: "exportSettings",
           label: translate("HWHTITANTRAINER_EXPORT_SETTINGS"),
           icon: "download",
           tone: "graphite"
         },
         {
-          action: "importSettings",
+          result: "importSettings",
           label: translate("HWHTITANTRAINER_IMPORT_SETTINGS"),
           icon: "upload",
           tone: "graphite"
         },
         {
-          action: "feedback",
+          result: "feedback",
           label: translate("HWHTITANART_FEEDBACK_BUTTON"),
           icon: "message-circle",
           tone: "graphite"
         },
         {
-          action: "whatsNew",
+          result: "whatsNew",
           label: translate("HWHTITANART_WHATS_NEW_BUTTON"),
           icon: "file-text",
           tone: "graphite"
         }
-      ].map(
-        (action) => `<button type="button" class="hwhx-button" data-tone="${escapeHtml$1(action.tone)}" data-action="${escapeHtml$1(action.action)}">${buildIconLabel(action.icon, action.label)}</button>`
-      ).join("");
-      return `<details class="hwhx-accordion"${buildTitanAccordionStateAttributes("trainer:tech", false)}${buildCssVariableStyleMarkup({ "--hwhx-accent": "#5f4528" })}><summary class="hwhx-accordion__summary"><span class="hwhx-accordion__heading">${buildAccordionArrowMarkup()}${buildInlineIcon("settings-2", "hwhx-gold")}<span>${escapeHtml$1(translate("HWHTITANTRAINER_TECH_SECTION"))}</span></span></summary><div class="hwhx-accordion__body">${donateMarkup}<div class="hwhx-native-actions hwhx-native-actions--left">${actionMarkup}</div></div></details>`;
+      ]);
+      return `<details class="hwhx-accordion"${buildTitanAccordionStateAttributes("trainer:tech", false)}${buildCssVariableStyleMarkup({ "--hwhx-accent": "#5f4528" })}><summary class="hwhx-accordion__summary"><span class="hwhx-accordion__heading">${buildAccordionArrowMarkup()}${buildInlineIcon("settings-2", "hwhx-gold")}<span>${escapeHtml$1(translate("HWHTITANTRAINER_TECH_SECTION"))}</span></span></summary><div class="hwhx-accordion__body">${donateMarkup}${actionMarkup}</div></details>`;
     }
     function buildTitanTrainerInterfaceAccordion(artifactSettings, levelSettings, skinSettings) {
       const content = [

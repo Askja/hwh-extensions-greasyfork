@@ -1,7 +1,7 @@
 {
   "sourceRepository": "Askja/hwh-extensions",
   "sourceRef": "dev",
-  "sourceSha": "47120ea7f18e6ba6349875eacf383d386ba39576",
+  "sourceSha": "010ba5823a1075a2a9351d735d9c91d40ce2d890",
   "publicRepository": "Askja/hwh-extensions-greasyfork",
   "publicBranch": "main",
   "scripts": [
@@ -18,13 +18,6 @@
       "version": "1.0.3",
       "updateURL": "https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhheromanager.meta.js",
       "downloadURL": "https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhheromanager.user.js"
-    },
-    {
-      "id": "hwhseer",
-      "name": "HWH Seer",
-      "version": "1.0.3",
-      "updateURL": "https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhseer.meta.js",
-      "downloadURL": "https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhseer.user.js"
     },
     {
       "id": "hwhtitanartifact",
