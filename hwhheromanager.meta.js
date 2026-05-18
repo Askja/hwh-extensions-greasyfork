@@ -1,0 +1,15 @@
+// ==UserScript==
+// @name           HWH Hero Manager
+// @name:en        HWH Hero Manager
+// @namespace      http://tampermonkey.net/
+// @version        1.0.3
+// @updateURL      https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhheromanager.meta.js
+// @downloadURL    https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhheromanager.user.js
+// @description    Менеджер прокачки героев: умения, эволюция, облики, символы, дар стихии, артефакты и асгард.
+// @description:en Hero upgrade manager for skills, evolution, skins, glyphs, Gift of the Elements, artifacts, and Asgard.
+// @author         Askja
+// @match          https://www.hero-wars.com/*
+// @match          https://apps-1701433570146040.apps.fbsbx.com/*
+// @grant          none
+// @license        MIT
+// ==/UserScript==

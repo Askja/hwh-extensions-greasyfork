@@ -1,0 +1,45 @@
+{
+  "generatedAt": "2026-05-18T09:51:47.365Z",
+  "sourceRepository": "Askja/hwh-extensions",
+  "sourceRef": "dev",
+  "sourceSha": "9fddfff72bf258b91b1f48639c335615d4340497",
+  "publicRepository": "Askja/hwh-extensions-greasyfork",
+  "publicBranch": "main",
+  "scripts": [
+    {
+      "id": "hwhauto",
+      "name": "HWHAutoFarmer",
+      "version": "1.7.3",
+      "updateURL": "https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhauto.meta.js",
+      "downloadURL": "https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhauto.user.js"
+    },
+    {
+      "id": "hwhheromanager",
+      "name": "HWH Hero Manager",
+      "version": "1.0.3",
+      "updateURL": "https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhheromanager.meta.js",
+      "downloadURL": "https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhheromanager.user.js"
+    },
+    {
+      "id": "hwhseer",
+      "name": "HWH Seer",
+      "version": "1.0.3",
+      "updateURL": "https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhseer.meta.js",
+      "downloadURL": "https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhseer.user.js"
+    },
+    {
+      "id": "hwhtitanartifact",
+      "name": "HWH Titan Trainer",
+      "version": "1.3.3",
+      "updateURL": "https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhtitanartifact.meta.js",
+      "downloadURL": "https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhtitanartifact.user.js"
+    },
+    {
+      "id": "hwhvacuum",
+      "name": "HWH Shop Vacuum",
+      "version": "1.3.3",
+      "updateURL": "https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhvacuum.meta.js",
+      "downloadURL": "https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhvacuum.user.js"
+    }
+  ]
+}
