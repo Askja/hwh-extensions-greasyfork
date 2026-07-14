@@ -2,7 +2,7 @@
 // @name           HWH Titan Trainer
 // @name:en        HWH Titan Trainer
 // @namespace      http://tampermonkey.net/
-// @version        1.3.3
+// @version        1.3.681
 // @updateURL      https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhtitanartifact.meta.js
 // @downloadURL    https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhtitanartifact.user.js
 // @description    Качает уровни, артефакты и облики выбранных титанов с лимитами ресурсов и настройками очередей.
