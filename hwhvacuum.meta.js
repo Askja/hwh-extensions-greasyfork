@@ -2,9 +2,10 @@
 // @name           HWH Shop Vacuum
 // @name:en        HWH Shop Vacuum
 // @namespace      http://tampermonkey.net/
-// @version        1.3.682
+// @version        1.3.684
 // @updateURL      https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhvacuum.meta.js
 // @downloadURL    https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhvacuum.user.js
+// @supportURL     https://t.me/+ppLK1qqObB43NjMy
 // @description    Скупает выбранные товары, продает лишние фрагменты и запускается из нужного меню или «Сделать всё».
 // @description:en Buys configured shop slots, sells surplus fragments, and can run from the chosen menu or Do all.
 // @author         Askja

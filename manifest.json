@@ -1,7 +1,7 @@
 {
   "sourceRepository": "Askja/hwh-extensions",
   "sourceRef": "dev",
-  "sourceSha": "b79d9229723c0ff1f23dac3c7d0896bc1a9f1498",
+  "sourceSha": "93a90ebfeb6a4a5834cda66b359aa2f6b4493cda",
   "publicRepository": "Askja/hwh-extensions-greasyfork",
   "publicBranch": "main",
   "scripts": [
@@ -11,7 +11,7 @@
       "channel": "stable",
       "betaNumber": null,
       "name": "HWHAutoFarmer",
-      "version": "1.7.682",
+      "version": "1.7.684",
       "updateURL": "https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhauto.meta.js",
       "downloadURL": "https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhauto.user.js"
     },
@@ -21,7 +21,7 @@
       "channel": "beta",
       "betaNumber": 2,
       "name": "HWHAutoFarmer Beta",
-      "version": "1.8.682-beta.2",
+      "version": "1.8.684-beta.2",
       "updateURL": "https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhauto-beta.meta.js",
       "downloadURL": "https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhauto-beta.user.js"
     },
@@ -31,7 +31,7 @@
       "channel": "stable",
       "betaNumber": null,
       "name": "HWH Titan Trainer",
-      "version": "1.3.682",
+      "version": "1.3.684",
       "updateURL": "https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhtitanartifact.meta.js",
       "downloadURL": "https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhtitanartifact.user.js"
     },
@@ -41,7 +41,7 @@
       "channel": "beta",
       "betaNumber": 1,
       "name": "HWH Titan Trainer Beta",
-      "version": "1.4.682-beta.1",
+      "version": "1.4.684-beta.1",
       "updateURL": "https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhtitanartifact-beta.meta.js",
       "downloadURL": "https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhtitanartifact-beta.user.js"
     },
@@ -51,7 +51,7 @@
       "channel": "stable",
       "betaNumber": null,
       "name": "HWH Shop Vacuum",
-      "version": "1.3.682",
+      "version": "1.3.684",
       "updateURL": "https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhvacuum.meta.js",
       "downloadURL": "https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhvacuum.user.js"
     },
@@ -61,7 +61,7 @@
       "channel": "stable",
       "betaNumber": null,
       "name": "HWH Hero Manager",
-      "version": "1.0.682",
+      "version": "1.0.684",
       "updateURL": "https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhheromanager.meta.js",
       "downloadURL": "https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhheromanager.user.js"
     }

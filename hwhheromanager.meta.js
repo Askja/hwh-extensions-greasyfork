@@ -2,9 +2,10 @@
 // @name           HWH Hero Manager
 // @name:en        HWH Hero Manager
 // @namespace      http://tampermonkey.net/
-// @version        1.0.682
+// @version        1.0.684
 // @updateURL      https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhheromanager.meta.js
 // @downloadURL    https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhheromanager.user.js
+// @supportURL     https://t.me/+ppLK1qqObB43NjMy
 // @description    Менеджер героев.
 // @description:en Hero manager.
 // @author         Askja

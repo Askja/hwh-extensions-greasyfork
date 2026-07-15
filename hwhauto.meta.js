@@ -2,9 +2,10 @@
 // @name           HWHAutoFarmer
 // @name:en        HWHAutoFarmer
 // @namespace      http://tampermonkey.net/
-// @version        1.7.682
+// @version        1.7.684
 // @updateURL      https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhauto.meta.js
 // @downloadURL    https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhauto.user.js
+// @supportURL     https://t.me/+ppLK1qqObB43NjMy
 // @description    Фарм шмота, энергии, магазинов, крафта и рангов с резервами.
 // @description:en Farms gear, energy, shops, crafting and ranks with reserves.
 // @author         Askja
