@@ -2,7 +2,7 @@
 // @name           HWHAutoFarmer Beta
 // @name:en        HWHAutoFarmer Beta
 // @namespace      http://tampermonkey.net/
-// @version        1.8.681-beta.2
+// @version        1.8.682-beta.2
 // @updateURL      https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhauto-beta.meta.js
 // @downloadURL    https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhauto-beta.user.js
 // @description    Бета AutoFarmer для проверки планировщика, UI и фарма.

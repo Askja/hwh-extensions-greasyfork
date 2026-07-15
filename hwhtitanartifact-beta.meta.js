@@ -2,7 +2,7 @@
 // @name           HWH Titan Trainer Beta
 // @name:en        HWH Titan Trainer Beta
 // @namespace      http://tampermonkey.net/
-// @version        1.4.681-beta.1
+// @version        1.4.682-beta.1
 // @updateURL      https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhtitanartifact-beta.meta.js
 // @downloadURL    https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhtitanartifact-beta.user.js
 // @description    Бета Titan Trainer для проверки персональных лимитов, очередей и интерфейса.
