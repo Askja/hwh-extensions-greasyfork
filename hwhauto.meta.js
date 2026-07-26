@@ -2,7 +2,7 @@
 // @name           HWHAutoFarmer
 // @name:en        HWHAutoFarmer
 // @namespace      http://tampermonkey.net/
-// @version        1.7.684
+// @version        1.7.746
 // @updateURL      https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhauto.meta.js
 // @downloadURL    https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhauto.user.js
 // @supportURL     https://t.me/+ppLK1qqObB43NjMy
