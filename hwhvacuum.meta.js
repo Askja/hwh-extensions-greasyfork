@@ -2,7 +2,7 @@
 // @name           HWH Shop Vacuum
 // @name:en        HWH Shop Vacuum
 // @namespace      http://tampermonkey.net/
-// @version        1.3.746
+// @version        1.3.747
 // @updateURL      https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhvacuum.meta.js
 // @downloadURL    https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhvacuum.user.js
 // @supportURL     https://t.me/+ppLK1qqObB43NjMy

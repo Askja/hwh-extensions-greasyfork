@@ -2,7 +2,7 @@
 // @name           HWHAutoFarmer Lite
 // @name:en        HWHAutoFarmer Lite
 // @namespace      http://tampermonkey.net/
-// @version        1.8.15-lite.1
+// @version        1.8.16-lite.1
 // @updateURL      https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhauto-lite.meta.js
 // @downloadURL    https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhauto-lite.user.js
 // @supportURL     https://t.me/+ppLK1qqObB43NjMy

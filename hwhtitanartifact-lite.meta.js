@@ -2,7 +2,7 @@
 // @name           HWH Titan Trainer Lite
 // @name:en        HWH Titan Trainer Lite
 // @namespace      http://tampermonkey.net/
-// @version        1.4.9-lite.1
+// @version        1.4.10-lite.1
 // @updateURL      https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhtitanartifact-lite.meta.js
 // @downloadURL    https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhtitanartifact-lite.user.js
 // @supportURL     https://t.me/+ppLK1qqObB43NjMy

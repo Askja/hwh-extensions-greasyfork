@@ -2,7 +2,7 @@
 // @name           HWH Titan Trainer Beta
 // @name:en        HWH Titan Trainer Beta
 // @namespace      http://tampermonkey.net/
-// @version        1.4.746-beta.1
+// @version        1.4.747-beta.1
 // @updateURL      https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhtitanartifact-beta.meta.js
 // @downloadURL    https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhtitanartifact-beta.user.js
 // @supportURL     https://t.me/+ppLK1qqObB43NjMy
