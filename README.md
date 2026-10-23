@@ -4,17 +4,20 @@
 но не принимают молча опасные решения: расходы ограничиваются настройками и резервами,
 а результат каждого запуска выводится в отчёте.
 
-Поддерживаются `hero-wars.com` и Facebook Canvas-версия игры. Для установки нужен
+Поддерживаются `hero-wars.com`, `hero-wars.cn` и Facebook Canvas-версия игры. Для установки нужен
 Tampermonkey или другой совместимый менеджер userscript-ов.
 
 ## Скрипты
 
-| Скрипт                | Что делает                                                                                                                             |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| **HWH AutoFarmer**    | Планирует и фармит экипировку героев, расходует энергию по заданным правилам, покупает предметы в магазинах, крафтит и повышает ранги. |
-| **HWH Titan Trainer** | Прокачивает уровни, облики и артефакты выбранных титанов с персональными лимитами, резервами и очередью.                               |
-| **HWH Shop Vacuum**   | Покупает выбранные товары, обменивает души и продаёт лишние фрагменты с учётом резервов.                                               |
-| **HWH Hero Manager**  | Управляет очередью и модулями прокачки героев.                                                                                         |
+| Скрипт                  | Что делает                                                                                                                             |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| **HWH AutoFarmer**      | Планирует и фармит экипировку героев, расходует энергию по заданным правилам, покупает предметы в магазинах, крафтит и повышает ранги. |
+| **HWH Titan Trainer**   | Прокачивает уровни, облики и артефакты выбранных титанов с персональными лимитами, резервами и очередью.                               |
+| **HWH Shop Vacuum**     | Покупает выбранные товары, обменивает души и продаёт лишние фрагменты с учётом резервов.                                               |
+| **HWH Hero Manager**    | Управляет очередью и модулями прокачки героев.                                                                                         |
+| **HWH Season Runner**   | Планирует задания сезонных пропусков и выполняет разрешённые действия с резервами ресурсов.                                            |
+| **HWH Rewards Manager** | Собирает выбранные награды из почты, заданий, событий и пропусков.                                                                     |
+| **HWH Battle Lab**      | Считает бои, сравнивает составы и сохраняет локальную историю расчётов.                                                                |
 
 ## Каналы и варианты
 
@@ -30,16 +33,20 @@ Stable и Lite одного продукта устанавливаются ка
 Публичное зеркало содержит читаемые неминифицированные сборки. URL ниже предназначены
 для поля **Sync code from URL** при создании или редактировании страницы скрипта.
 
-| Страница GreasyFork    | Канал  | URL исходника для синхронизации                                                                        |
-| ---------------------- | ------ | ------------------------------------------------------------------------------------------------------ |
-| HWH AutoFarmer         | Stable | `https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhauto.user.js`               |
-| HWH AutoFarmer Lite    | Lite   | `https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhauto-lite.user.js`          |
-| HWH Titan Trainer      | Stable | `https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhtitanartifact.user.js`      |
-| HWH Titan Trainer Lite | Lite   | `https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhtitanartifact-lite.user.js` |
-| HWH Shop Vacuum        | Stable | `https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhvacuum.user.js`             |
-| HWH Shop Vacuum Lite   | Lite   | `https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhvacuum-lite.user.js`        |
-| HWH Hero Manager       | Stable | `https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhheromanager.user.js`        |
-| HWH Hero Manager Lite | Lite | `https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhheromanager-lite.user.js` |
+| Страница GreasyFork      | Канал  | URL исходника для синхронизации                                                                        |
+| ------------------------ | ------ | ------------------------------------------------------------------------------------------------------ |
+| HWH AutoFarmer           | Stable | `https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhauto.user.js`               |
+| HWH AutoFarmer Lite      | Lite   | `https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhauto-lite.user.js`          |
+| HWH Titan Trainer        | Stable | `https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhtitanartifact.user.js`      |
+| HWH Titan Trainer Lite   | Lite   | `https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhtitanartifact-lite.user.js` |
+| HWH Shop Vacuum          | Stable | `https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhvacuum.user.js`             |
+| HWH Shop Vacuum Lite     | Lite   | `https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhvacuum-lite.user.js`        |
+| HWH Hero Manager         | Stable | `https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhheromanager.user.js`        |
+| HWH Hero Manager Lite    | Lite   | `https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhheromanager-lite.user.js`   |
+| HWH Season Runner        | Stable | `https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhseason.user.js`             |
+| HWH Rewards Manager      | Stable | `https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhrewards.user.js`            |
+| HWH Rewards Manager Lite | Lite   | `https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhrewards-lite.user.js`       |
+| HWH Battle Lab           | Stable | `https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhbattlelab.user.js`          |
 
 GreasyFork при публикации заменяет `@updateURL` и `@downloadURL` своими адресами, поэтому
 установленная оттуда версия дальше обновляется через GreasyFork.
@@ -62,7 +69,8 @@ GreasyFork при публикации заменяет `@updateURL` и `@downlo
 3. Отправить изменения в `main` и дождаться workflow **Синхронизация GreasyFork**.
 4. На GreasyFork создать отдельную страницу для каждого URL из таблицы.
 5. Включить синхронизацию кода по raw URL и проверить, что GreasyFork принял новую версию.
-6. Не вставлять в описание призывы устанавливать скрипт с другого сайта — это нарушает
+6. Для немедленной синхронизации настроить в публичном репозитории GitHub вебхук GreasyFork: `push`, `application/json`, проверка TLS и секрет из авторского аккаунта GreasyFork.
+7. Не вставлять в описание призывы устанавливать скрипт с другого сайта — это нарушает
    правила площадки. Ссылки на документацию и поддержку разрешены.
 
 Сборка `build:greasyfork` специально отключает минификацию JavaScript, сжатие имён и

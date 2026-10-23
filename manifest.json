@@ -68,6 +68,16 @@
       "sha256": "9ac89d13e8f59a78a425c3457948da9cfdd0f43335147981be005935a08eb0a1"
     },
     {
+      "id": "hwhseason",
+      "docsId": "hwhseason",
+      "channel": "stable",
+      "name": "HWH Season Runner",
+      "version": "1.0.190",
+      "updateURL": "https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhseason.meta.js",
+      "downloadURL": "https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhseason.user.js",
+      "sha256": "3e7d38ff6519601ead0340a9affc1ed31437234228acf92a4b69b609018098bc"
+    },
+    {
       "id": "hwhheromanager",
       "docsId": "hwhheromanager",
       "channel": "stable",
@@ -86,6 +96,36 @@
       "updateURL": "https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhheromanager-lite.meta.js",
       "downloadURL": "https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhheromanager-lite.user.js",
       "sha256": "0cb18b5da9b074c69413b6092d8956a262ae84bd076f2f8111d89883675cdae3"
+    },
+    {
+      "id": "hwhrewards",
+      "docsId": "hwhrewards",
+      "channel": "stable",
+      "name": "HWH Rewards Manager",
+      "version": "0.1.175",
+      "updateURL": "https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhrewards.meta.js",
+      "downloadURL": "https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhrewards.user.js",
+      "sha256": "cf4955de014ebaf94dc6c25888bc5276707cb6feed1b4516744dfc2e0db3486f"
+    },
+    {
+      "id": "hwhrewards-lite",
+      "docsId": "hwhrewards",
+      "channel": "lite",
+      "name": "HWH Rewards Manager Lite",
+      "version": "0.1.175-lite.1",
+      "updateURL": "https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhrewards-lite.meta.js",
+      "downloadURL": "https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhrewards-lite.user.js",
+      "sha256": "b9833790913a5553e9467966d0f60da232276618f2281e765ed525bb4dfd4bec"
+    },
+    {
+      "id": "hwhbattlelab",
+      "docsId": "hwhbattlelab",
+      "channel": "stable",
+      "name": "HWH Battle Lab",
+      "version": "0.2.363",
+      "updateURL": "https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhbattlelab.meta.js",
+      "downloadURL": "https://raw.githubusercontent.com/Askja/hwh-extensions-greasyfork/main/hwhbattlelab.user.js",
+      "sha256": "034fa691015d25cc44c340bda183b7d6cff59aca4f3c64df713034f7262518c4"
     }
   ]
 }
