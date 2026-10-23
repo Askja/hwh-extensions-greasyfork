@@ -30,6 +30,18 @@ Stable и Lite одного продукта устанавливаются ка
 
 ## Артефакты для синхронизации GreasyFork
 
+Страницы установки всех публичных редакций:
+
+| Скрипт          | Stable                                                                     | Lite                                                                                 |
+| --------------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| AutoFarmer      | [Установить](https://greasyfork.org/ru/scripts/571431-hwhautofarmer)       | [Установить Lite](https://greasyfork.org/ru/scripts/601839-hwhautofarmer-lite)       |
+| Titan Trainer   | [Установить](https://greasyfork.org/ru/scripts/571808-hwh-titan-trainer)   | [Установить Lite](https://greasyfork.org/ru/scripts/601840-hwh-titan-trainer-lite)   |
+| Shop Vacuum     | [Установить](https://greasyfork.org/ru/scripts/571682-hwh-shop-vacuum)     | [Установить Lite](https://greasyfork.org/ru/scripts/601841-hwh-shop-vacuum-lite)     |
+| Hero Manager    | [Установить](https://greasyfork.org/ru/scripts/601842-hwh-hero-manager)    | [Установить Lite](https://greasyfork.org/ru/scripts/601843-hwh-hero-manager-lite)    |
+| Rewards Manager | [Установить](https://greasyfork.org/ru/scripts/601845-hwh-rewards-manager) | [Установить Lite](https://greasyfork.org/ru/scripts/601846-hwh-rewards-manager-lite) |
+| Season Runner   | [Установить](https://greasyfork.org/ru/scripts/601844-hwh-season-runner)   | —                                                                                    |
+| Battle Lab      | [Установить](https://greasyfork.org/ru/scripts/601847-hwh-battle-lab)      | —                                                                                    |
+
 Публичное зеркало содержит читаемые неминифицированные сборки. URL ниже предназначены
 для поля **Sync code from URL** при создании или редактировании страницы скрипта.
 
